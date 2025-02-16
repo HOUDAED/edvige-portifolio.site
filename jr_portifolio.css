@@ -109,6 +109,33 @@ ul li a {
 .content-section {
     scroll-margin-top: 100px; /* Ajuste en fonction de la hauteur du nav */
 }
+.about-he-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+}
+
+.profile-image-he img {
+    width: 100%; /* Prend la largeur du conteneur */
+    max-width: 250px; /* Ne dépasse pas 250px */
+    height: auto; /* Garde les proportions */
+    border-radius: 50%; /* Si tu veux une image ronde */
+    object-fit: cover;
+}
+
+/* Pour les grands écrans, on ajuste */
+@media (min-width: 768px) {
+    .about-he-container {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .profile-image-he img {
+        max-width: 300px; /* Augmente la taille sur grands écrans */
+    }
+}
 
 #about-he{
     padding: 80px 10%;
@@ -137,12 +164,7 @@ ul li a {
     margin: 10px auto;
     border-radius: 2px;
 }
-.about-he-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-}
+
 
 .profile-image-he img {
     width: 200px;
@@ -164,12 +186,6 @@ ul li a {
 .highlight {
     color: #27ae60; /* Vert pour rappeler l’agriculture et l’innovation */
     font-weight: bold;
-}
-
-.goal {
-    color: #2980b9; /* Bleu pour l’aspect technologique */
-    font-weight: bold;
-    text-transform: uppercase;
 }
 
 /* Animation subtile */
