@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>houmasse edvige Portifolio </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="jr_portifolio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@300;600&display=swap" rel="stylesheet">
+
+    <script defer src="jr_portifolio.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">HED</div>
+            <ul>
+                <li><a href="#about-he">À propos</a></li>
+                <li><a href="#he-competences">Compétences</a></li>
+                <li><a href="#he-diplomes">Diplômes</a></li>
+                <li><a href="#he-contact">Me contacter</a></li>
+                <li><a href="cv_edvige.pdf" download="HED_CV.pdf" class="download-link">
+                CV ⬇</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <section class="jr">
+        <div class="he-top"></div>
+        <h1>- Edvige HOUMASSE -</h1>
+        <p>Étudiant Informatique Intelligence Artificielle & Data</p>
+    </section>
+    
+    <section id="about-he" class="content-section">
+        <h2>- À propos -</h2>
+        <div class="about-he-container">
+            <div class="profile-image-he">
+                <img src="JR_PHOTO.jpg" alt="Photo de profil">
+            </div>
+            <div class="about-he-info-container">
+                <div class="tabs">
+                    <button class="tab-button active" onclick="showTab('presentation')">Présentation</button>
+                    <button class="tab-button" onclick="showTab('langues')">Langues</button>
+                    <button class="tab-button" onclick="showTab('soft-skills')">Soft skills</button>
+                    <button class="tab-button" onclick="showTab('passions')">Passions</button>
+                </div>
+                <div class="tab-content active" id="presentation">
+                    <p class="presentation-text">
+                        <strong>Passionné par la transformation numérique du secteur agricole</strong>, 
+                        j’ai entamé une transition stratégique après ma 
+                        <span class="highlight">licence en Production et Santé Animale</span> pour intégrer 
+                        l’univers de l’<span class="highlight">Intelligence Artificielle et de la Data</span>. 
+                    </p>
+                    <p class="presentation-text">
+                        J’ai renforcé mes compétences grâce à des formations spécialisées en bases de données et 
+                        en développement logiciel, au cours desquelles j’ai conçu un projet de <span class="highlight">gestion de stock agricole</span>.
+                    </p>
+                    <p class="presentation-text">
+                        En septembre, j’intègre une <span class="highlight">licence en Informatique, Intelligence Artificielle & Data</span> 
+                        afin d’approfondir mon expertise et d’innover dans la modernisation de la gestion agricole.  
+                        <span class="goal">Mon ambition :</span> devenir <strong>AI Engineer</strong> et développer 
+                        des solutions intelligentes capables d’optimiser la productivité, la gestion des ressources et la prise de décision dans le secteur agricole.
+                    </p>
+                </div>
+                
+                
+                <div class="tab-content" id="langues">
+                    <div class="language-container">
+                        <div class="language-card">
+                            <div class="flag-container">
+                                <img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" alt="Français">
+                            </div>
+                            <h3>Français</h3>
+                            <p>Langue maternelle</p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                
+                        <div class="language-card">
+                            <div class="flag-container">
+                                <img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" alt="Anglais">
+                            </div>
+                            <h3>Anglais</h3>
+                            <p>Bonne maîtrise</p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="soft-skills">
+                    <h3>💡 Soft Skills</h3>
+                    <div class="soft-skills-container">
+                        <div class="skill-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Résolution de problèmes</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Adaptabilité</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fas fa-users"></i>
+                            <span>Esprit d’équipe</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fas fa-user-check"></i>
+                            <span>Autonomie</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fas fa-clock"></i>
+                            <span>Gestion du temps</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="passions">
+                    <h3>🎯 Passions</h3>
+                    <div class="passions-container">
+                        <div class="passion-card">
+                            <i class="fas fa-microchip"></i>
+                            <span>Technologie</span>
+                        </div>
+                        <div class="passion-card">
+                            <i class="fas fa-futbol"></i>
+                            <span>Football</span>
+                        </div>
+                        <div class="passion-card">
+                            <i class="fas fa-music"></i>
+                            <span>Musique</span>
+                        </div>
+                        <div class="passion-card">
+                            <i class="fas fa-plane"></i>
+                            <span>Voyage</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <section id ="he-competences" class="content-section">
+        <h2><em>Compétences</em></h2>
+        <div class="competences-container">
+            <div class="competence-category">
+                <div class="category-header">Web</div>
+                <ul>
+                    <li>HTML </li>
+                    <li>CSS </li>
+                    <li>JS</li>
+                </ul>
+            </div>
+    
+            <div class="competence-category" class="content-section">
+                <div class="category-header">Base de données</div>
+                <ul>
+                    <li> Microsoft SQL Server</li>
+                    <li>SQL</li>
+                    <li>PL/SQL</li>
+                    <li>Oracle</li>
+                </ul>
+            </div>
+    
+            <div class="competence-category">
+                <div class="category-header">Programmation</div>
+                <ul>
+                    <li>C#</li>
+                    <li>C++</li>
+                    <li>Java</li>
+                    <li>Python</li>
+                </ul>
+            </div>
+    
+            <div class="competence-category">
+                <div class="category-header">Autres</div>
+                <ul>
+                    <li>Microsoft Office (Word, Excel, PowerPoint) </li>
+                    <li>Git</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="he-diplomes" class="content-section">
+        <h2><em>Diplômes & Certifications</em></h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">2024 - 2025</div>
+                <div class="timeline-content">
+                    <h3>Certification en Génie Logiciel</h3>
+                    <p>IPMC College University (Accra-Ghana)</p>
+                </div>
+            </div>
+    
+            <div class="timeline-item">
+                <div class="timeline-date">Février 2024 - Octobre 2024</div>
+                <div class="timeline-content">
+                    <h3>Certificat en Technologie des Bases de Données</h3>
+                    <p>IPMC College University (Accra-Ghana)</p>
+                </div>
+            </div>
+    
+            <div class="timeline-item">
+                <div class="timeline-date">2019 - 2022</div>
+                <div class="timeline-content">
+                    <h3>Licence Professionnelle en Production et Santé Animales</h3>
+                    <p>Ecole Polytechnique d'Abomey-Calavi</p>
+                </div>
+            </div>
+    
+            <div class="timeline-item">
+                <div class="timeline-date">2016 - 2019</div>
+                <div class="timeline-content">
+                    <h3>Baccalauréat</h3>
+                    <p>CEG Tatonnonkon</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="he-contact" class="contact-section">
+        <h2><em>Me Contacter</em></h2>
+    
+        <div class="he-contact-icons">
+            <a href="houmassedagbegnon@gmail.com" class="contact-link email" title="Email">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="https://wa.me/+22997103642" class="contact-link whatsapp" title="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/houmasse-edvige-46b4321b0" class="contact-link linkedin" title="LinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/HOUDAED" class="contact-link github" title="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </div>
+    </section>
+    
+    
+</body>
+</html>
