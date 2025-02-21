@@ -60,3 +60,17 @@ document.addEventListener("DOMContentLoaded", function () {
         updateCarousel();
     }, 5000);
 });
+const navToggle = document.querySelector(".nav-toggle");
+const navMenu = document.querySelector("nav ul");
+
+navToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+});
+
+window.addEventListener("scroll", function() {
+    document.querySelectorAll(".reveal").forEach(function(el) {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
+            el.classList.add("visible");
+        }
+    });
+});
