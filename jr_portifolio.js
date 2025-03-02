@@ -74,3 +74,30 @@ window.addEventListener("scroll", function() {
         }
     });
 });
+
+function animateSkill(element, percentage) {
+    let skillFill = element.querySelector(".skill-fill");
+    let skillPercent = element.querySelector(".skill-percent");
+    
+    skillFill.style.width = "0"; // Réinitialise l'animation
+    skillPercent.style.opacity = "0";
+    
+    setTimeout(() => {
+        skillFill.style.width = percentage + "%"; // Anime la barre
+    }, 100); 
+
+    let counter = 0;
+    let interval = setInterval(() => {
+        if (counter >= percentage) {
+            clearInterval(interval);
+        } else {
+            counter++;
+            skillPercent.textContent = counter + "%"; // Fait monter le nombre
+        }
+    }, 20);
+
+    setTimeout(() => {
+        skillPercent.style.opacity = "1"; // Affiche le pourcentage
+    }, 1000);
+}
+
