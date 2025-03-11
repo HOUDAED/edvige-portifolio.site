@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en" data-language="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=5.0">
+    <title>Houmasse Edvige Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="jr_portifolio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Raleway:wght@300;600&display=swap" rel="stylesheet">
+    <script defer src="jr_portifolio.js"></script>
+</head>
+<body>
+    <header>
+        <nav aria-label="Main navigation">
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+            <div class="logo">HED</div>
+            <ul>
+                <li><a href="#about-he-en">About</a></li>
+                <li><a href="#he-competences-en">Skills</a></li>
+                <li><a href="#he-diplomes-en">Education</a></li>
+                <li><a href="#he-contact-en">Contact</a></li>
+                <li><a href="Edvigeresume.pdf" download="HED_CV_EN.pdf" class="download-link">
+                CV ⬇</a></li>
+                <li>
+                    <a href="index.html" 
+                       class="lang-switch" 
+                       data-lang="fr" 
+                       aria-label="Switch to French version">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" 
+                             alt="Français" 
+                             class="lang-flag" 
+                             width="20" 
+                             height="13">
+                        FR
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="jr" aria-label="Hero section">
+        <div class="he-top">
+            <h1>- Edvige HOUMASSE -</h1>
+            <p>Computer Science, AI & Data Student</p>
+        </div>
+    </section>
+    
+    <section id="about-he-en" class="content-section" aria-label="About section">
+        <h2>- About -</h2>
+        <div class="about-he-container">
+            <div class="profile-image-he">
+                <img src="JR_PHOTO.jpg" alt="Profile photo">
+            </div>
+            <div class="about-he-info-container">
+                <div class="tabs" role="tablist">
+                    <button class="tab-button active" 
+                            role="tab" 
+                            aria-selected="true" 
+                            aria-controls="presentation" 
+                            onclick="showTab('presentation')">
+                        About Me
+                    </button>
+                    <button class="tab-button" onclick="showTab('languages')">Languages</button>
+                    <button class="tab-button" onclick="showTab('soft-skills')">Soft Skills</button>
+                    <button class="tab-button" onclick="showTab('passions')">Hobbies</button>
+                </div>
+                
+                <div class="tab-content active" 
+                     id="presentation" 
+                     role="tabpanel" 
+                     aria-labelledby="presentation-tab">
+                    <p class="presentation-text">
+                        <strong>Aspiring Data Infrastructure Engineer</strong>, 
+                        I combine a <span class="highlight">solid background in database technologies</span> 
+                        with a passion for innovation and artificial intelligence.
+                    </p>
+                    <p class="presentation-text">
+                        My mastery of advanced IT tools and programming expertise 
+                        enable me to develop <span class="highlight">high-performance solutions</span> to 
+                        optimize data management and analysis.
+                    </p>
+                    <p class="presentation-text">
+                        Curious and determined, I am actively seeking an <span class="highlight">internship or 
+                        volunteer opportunity</span> to put my skills into practice and contribute 
+                        to cutting-edge projects, while pursuing my ambition to become a 
+                        <span class="highlight">data infrastructure expert</span>.
+                    </p>
+                </div>
+                
+                <div id="languages" class="tab-content">
+                    <div class="language-skills">
+                        <div class="language-card" data-level="100">
+                            <div class="language-name">French</div>
+                            <div class="proficiency-bar">
+                                <div class="proficiency-level" style="width: 100%"></div>
+                            </div>
+                            <div class="proficiency-text">Native language </div>
+                        </div>
+                
+                        <div class="language-card" data-level="75">
+                            <div class="language-name">English </div>
+                            <div class="proficiency-bar">
+                                <div class="proficiency-level" style="width: 75%"></div>
+                            </div>
+                            <div class="proficiency-text">Proficient</div>
+                        </div>
+                    </div>
+                
+                <div class="tab-content" id="soft-skills">
+                    <h3>💡 Soft Skills</h3>
+                    <div class="soft-skills-container">
+                        <div class="skill-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Problem Solving</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Adaptability</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fas fa-users"></i>
+                            <span>Team Spirit</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fas fa-user-check"></i>
+                            <span>Autonomy</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fas fa-clock"></i>
+                            <span>Time Management</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="passions">
+                    <h3>🎯 Hobbies</h3>
+                    <div class="passions-container">
+                        <div class="passion-card">
+                            <i class="fas fa-microchip"></i>
+                            <span>Technology</span>
+                        </div>
+                        <div class="passion-card">
+                            <i class="fas fa-futbol"></i>
+                            <span>Soccer</span>
+                        </div>
+                        <div class="passion-card">
+                            <i class="fas fa-music"></i>
+                            <span>Music</span>
+                        </div>
+                        <div class="passion-card">
+                            <i class="fas fa-plane"></i>
+                            <span>Travel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="he-competences-en" class="content-section" aria-label="Skills section">
+        <h2>Skills</h2>
+        <div class="competences-container">
+            <div class="competence-category">
+                <div class="category-header">Database</div>
+                <ul>
+                    <li data-index="1" onmouseover="animateSkill(this, 80)">Microsoft SQL Server
+                        <div class="skill-bar" 
+                             role="progressbar" 
+                             aria-valuenow="80" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            <div class="skill-fill"></div>
+                            <span class="skill-percent" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li data-index="1" onmouseover="animateSkill(this, 80)">PgSQL
+                        <div class="skill-bar" 
+                             role="progressbar" 
+                             aria-valuenow="80" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            <div class="skill-fill"></div>
+                            <span class="skill-percent" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li data-index="1" onmouseover="animateSkill(this, 85)">SQL
+                        <div class="skill-bar" 
+                             role="progressbar" 
+                             aria-valuenow="80" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            <div class="skill-fill"></div>
+                            <span class="skill-percent" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li data-index="1" onmouseover="animateSkill(this, 60)">PL/SQL
+                        <div class="skill-bar" 
+                             role="progressbar" 
+                             aria-valuenow="80" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            <div class="skill-fill"></div>
+                            <span class="skill-percent" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li data-index="1" onmouseover="animateSkill(this, 60)">Oracle
+                        <div class="skill-bar" 
+                             role="progressbar" 
+                             aria-valuenow="80" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            <div class="skill-fill"></div>
+                            <span class="skill-percent" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li data-index="1" onmouseover="animateSkill(this, 80)">Oracle SQL Developer Data Modeler
+                        <div class="skill-bar" 
+                             role="progressbar" 
+                             aria-valuenow="80" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            <div class="skill-fill"></div>
+                            <span class="skill-percent" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="competence-category">
+                <div class="category-header">Programming</div>
+                <ul>
+                    <li data-index="1" onmouseover="animateSkill(this, 70)">Python
+                        <div class="skill-bar" 
+                             role="progressbar" 
+                             aria-valuenow="80" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            <div class="skill-fill"></div>
+                            <span class="skill-percent" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li data-index="1" onmouseover="animateSkill(this, 50)">C++
+                        <div class="skill-bar" 
+                             role="progressbar" 
+                             aria-valuenow="80" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            <div class="skill-fill"></div>
+                            <span class="skill-percent" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li data-index="1" onmouseover="animateSkill(this, 50)">Java
+                        <div class="skill-bar" 
+                             role="progressbar" 
+                             aria-valuenow="80" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            <div class="skill-fill"></div>
+                            <span class="skill-percent" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li data-index="1" onmouseover="animateSkill(this, 50)">C#
+                        <div class="skill-bar" 
+                             role="progressbar" 
+                             aria-valuenow="80" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            <div class="skill-fill"></div>
+                            <span class="skill-percent" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="competence-category">
+                <div class="category-header">Web</div>
+                <ul>
+                    <li data-index="1" onmouseover="animateSkill(this, 60)">HTML
+                        <div class="skill-bar" 
+                             role="progressbar" 
+                             aria-valuenow="80" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            <div class="skill-fill"></div>
+                            <span class="skill-percent" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li data-index="1" onmouseover="animateSkill(this, 50)">CSS
+                        <div class="skill-bar" 
+                             role="progressbar" 
+                             aria-valuenow="80" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            <div class="skill-fill"></div>
+                            <span class="skill-percent" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li data-index="1" onmouseover="animateSkill(this, 40)">JS
+                        <div class="skill-bar" 
+                             role="progressbar" 
+                             aria-valuenow="80" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            <div class="skill-fill"></div>
+                            <span class="skill-percent" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="competence-category">
+                <div class="category-header">Others</div>
+                <ul>
+                    <li data-index="1" onmouseover="animateSkill(this, 70)">Microsoft Office
+                        <div class="skill-bar" 
+                             role="progressbar" 
+                             aria-valuenow="80" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            <div class="skill-fill"></div>
+                            <span class="skill-percent" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li data-index="1" onmouseover="animateSkill(this, 70)">Git
+                        <div class="skill-bar" 
+                             role="progressbar" 
+                             aria-valuenow="80" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            <div class="skill-fill"></div>
+                            <span class="skill-percent" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li data-index="1" onmouseover="animateSkill(this, 80)">Farm Management
+                        <div class="skill-bar" 
+                             role="progressbar" 
+                             aria-valuenow="80" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            <div class="skill-fill"></div>
+                            <span class="skill-percent" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li data-index="1" onmouseover="animateSkill(this, 85)">Production and animal Health
+                        <div class="skill-bar" 
+                             role="progressbar" 
+                             aria-valuenow="80" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            <div class="skill-fill"></div>
+                            <span class="skill-percent" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    </section>
+    <section id="he-diplomes-en" class="content-section">
+        <h2><em>Education & Certifications</em></h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">2024 - 2025</div>
+                <div class="timeline-content">
+                    <h3>Software Engineering Certification</h3>
+                    <p>IPMC College University (Accra-Ghana)</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">February 2024 - October 2024</div>
+                <div class="timeline-content">
+                    <h3>Database Technology Certificate</h3>
+                    <p>IPMC College University (Accra-Ghana)</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2019 - 2022</div>
+                <div class="timeline-content">
+                    <h3>Bachelor's Degree in Animal Production and Health</h3>
+                    <p>Polytechnic School of Abomey-Calavi</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2016 - 2019</div>
+                <div class="timeline-content">
+                    <h3>High School Diploma</h3>
+                    <p>CEG Tatonnonkon</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="he-contact-en" class="contact-section">
+        <h2><em>Contact Me</em></h2>
+        <div class="contact-intro">
+            <h3>Let's Connect!</h3>
+            <p>Feel free to reach out through any of these channels:</p>
+        </div>
+        <div class="he-contact-icons">
+            <a href="mailto:houmassedagbegnon@gmail.com" class="contact-link email" title="Email">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+            
+            <a href="https://wa.me/+233534597855" class="contact-link whatsapp" title="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/houmasse-edvige-46b4321b0" class="contact-link linkedin" title="LinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/HOUDAED" class="contact-link github" title="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </div>
+    </section>
+</body>
+</html>
+
