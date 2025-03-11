@@ -1676,3 +1676,52 @@ img {
         color: #e0e0e0;
     }
 }
+
+/* Soft Skills Styling */
+.soft-skills-container,
+.passions-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.skill-card,
+.passion-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.skill-card:hover,
+.passion-card:hover {
+    transform: translateY(-5px);
+}
+
+.skill-card i,
+.passion-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.skill-card span,
+.passion-card span {
+    color: #ffffff;
+    font-size: 1rem;
+    display: block;
+}
+
+/* Tab Content Visibility */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}

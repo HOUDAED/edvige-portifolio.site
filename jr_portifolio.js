@@ -1,103 +1,179 @@
-function showTab(he_TabId) {
-    // Récupère tous les boutons et contenus
-    const tabButtons = document.querySelectorAll(".tab-button");
-    const tabContents = document.querySelectorAll(".tab-content");
+// Main initialization wrapper
+document.addEventListener('DOMContentLoaded', function() {
+    // Cache DOM elements once
+    const elements = {
+        carousel: document.querySelector('.carousel'),
+        prevBtn: document.querySelector('.prev-btn'),
+        nextBtn: document.querySelector('.next-btn'),
+        navToggle: document.querySelector('.nav-toggle'),
+        navMenu: document.querySelector('nav ul'),
+        langSwitcher: document.querySelector('.lang-switch'),
+        revealElements: document.querySelectorAll('.reveal'),
+        tabButtons: document.querySelectorAll('.tab-button'),
+        tabContents: document.querySelectorAll('.tab-content')
+    };
 
-    // Supprime la classe "active" de tous les boutons et contenus
-    tabButtons.forEach(btn => btn.classList.remove("active"));
-    tabContents.forEach(content => content.classList.remove("active"));
-
-    // Ajoute la classe "active" au bouton cliqué et au contenu correspondant
-    document.querySelector(`[onclick="showTab('${he_TabId}')"]`).classList.add("active");
-    document.getElementById(he_TabId).classList.add("active");
-}
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
+    // Tab functionality
+    function showTab(tabId) {
+        // Hide all tab contents
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.remove('active');
+        });
+        
+        // Remove active class from all buttons
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.classList.remove('active');
+            button.setAttribute('aria-selected', 'false');
+        });
+        
+        // Show selected tab content
+        const selectedTab = document.getElementById(tabId);
+        if (selectedTab) {
+            selectedTab.classList.add('active');
         }
-    });
-});
-document.addEventListener("DOMContentLoaded", function () {
-    const carousel = document.querySelector(".carousel");
-    const prevBtn = document.querySelector(".prev-btn");
-    const nextBtn = document.querySelector(".next-btn");
-    
-    let index = 0;
-
-    function updateCarousel() {
-        carousel.style.transform = `translateX(-${index * 100}%)`;
+        
+        // Set active button
+        const selectedButton = document.querySelector(`[onclick="showTab('${tabId}')"]`);
+        if (selectedButton) {
+            selectedButton.classList.add('active');
+            selectedButton.setAttribute('aria-selected', 'true');
+        }
     }
 
-    nextBtn.addEventListener("click", function () {
-        if (index < carousel.children.length - 1) {
-            index++;
-        } else {
-            index = 0;
+    // Carousel functionality
+    function initCarousel() {
+        if (!elements.carousel) return;
+
+        let index = 0;
+        let autoScrollInterval;
+
+        function updateCarousel() {
+            elements.carousel.style.transform = `translateX(-${index * 100}%)`;
         }
-        updateCarousel();
+
+        function resetAutoScroll() {
+            clearInterval(autoScrollInterval);
+            startAutoScroll();
+        }
+
+        function startAutoScroll() {
+            autoScrollInterval = setInterval(() => {
+                index = (index + 1) % elements.carousel.children.length;
+                updateCarousel();
+            }, 5000);
+        }
+
+        elements.nextBtn?.addEventListener('click', () => {
+            index = (index + 1) % elements.carousel.children.length;
+            updateCarousel();
+            resetAutoScroll();
+        });
+
+        elements.prevBtn?.addEventListener('click', () => {
+            index = (index - 1 + elements.carousel.children.length) % elements.carousel.children.length;
+            updateCarousel();
+            resetAutoScroll();
+        });
+
+        startAutoScroll();
+    }
+
+    // Mobile menu functionality
+    function initMobileMenu() {
+        if (!elements.navToggle || !elements.navMenu) return;
+
+        const handleMenuToggle = (isOpen) => {
+            elements.navToggle.setAttribute('aria-expanded', isOpen);
+            elements.navToggle.innerHTML = isOpen ? '✕' : '☰';
+            document.body.classList.toggle('menu-open', isOpen);
+            elements.navMenu.classList.toggle('active', isOpen);
+        };
+
+        elements.navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const willOpen = !elements.navMenu.classList.contains('active');
+            handleMenuToggle(willOpen);
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav') && elements.navMenu.classList.contains('active')) {
+                handleMenuToggle(false);
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && elements.navMenu.classList.contains('active')) {
+                handleMenuToggle(false);
+            }
+        });
+    }
+
+    // Scroll animations
+    function initScrollAnimations() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        elements.revealElements.forEach(el => observer.observe(el));
+    }
+
+    // Skill animations
+    function animateSkill(element, percentage) {
+        if (!element) return;
+
+        const skillFill = element.querySelector('.skill-fill');
+        const skillPercent = element.querySelector('.skill-percent');
+        
+        if (!skillFill || !skillPercent) return;
+
+        skillFill.style.width = '0';
+        skillPercent.style.opacity = '0';
+
+        requestAnimationFrame(() => {
+            skillFill.style.width = `${percentage}%`;
+            let counter = 0;
+            
+            const increment = () => {
+                if (counter < percentage) {
+                    counter++;
+                    skillPercent.textContent = `${counter}%`;
+                    requestAnimationFrame(increment);
+                }
+            };
+
+            increment();
+            setTimeout(() => skillPercent.style.opacity = '1', 1000);
+        });
+    }
+
+    // Animate language proficiency bars when they become visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const card = entry.target;
+                const level = card.dataset.level;
+                const bar = card.querySelector('.proficiency-level');
+                bar.style.width = level + '%';
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.language-card').forEach(card => {
+        observer.observe(card);
     });
 
-    prevBtn.addEventListener("click", function () {
-        if (index > 0) {
-            index--;
-        } else {
-            index = carousel.children.length - 1;
-        }
-        updateCarousel();
-    });
+    // Initialize everything
+    initCarousel();
+    initMobileMenu();
+    initScrollAnimations();
 
-    // Auto-scroll toutes les 5 secondes
-    setInterval(() => {
-        if (index < carousel.children.length - 1) {
-            index++;
-        } else {
-            index = 0;
-        }
-        updateCarousel();
-    }, 5000);
+    // Make functions globally available
+    window.showTab = showTab;
+    window.animateSkill = animateSkill;
 });
-const navToggle = document.querySelector(".nav-toggle");
-const navMenu = document.querySelector("nav ul");
-
-navToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-});
-
-window.addEventListener("scroll", function() {
-    document.querySelectorAll(".reveal").forEach(function(el) {
-        if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
-            el.classList.add("visible");
-        }
-    });
-});
-
-function animateSkill(element, percentage) {
-    let skillFill = element.querySelector(".skill-fill");
-    let skillPercent = element.querySelector(".skill-percent");
-    
-    skillFill.style.width = "0"; // Réinitialise l'animation
-    skillPercent.style.opacity = "0";
-    
-    setTimeout(() => {
-        skillFill.style.width = percentage + "%"; // Anime la barre
-    }, 100); 
-
-    let counter = 0;
-    let interval = setInterval(() => {
-        if (counter >= percentage) {
-            clearInterval(interval);
-        } else {
-            counter++;
-            skillPercent.textContent = counter + "%"; // Fait monter le nombre
-        }
-    }, 20);
-
-    setTimeout(() => {
-        skillPercent.style.opacity = "1"; // Affiche le pourcentage
-    }, 1000);
-}
 
